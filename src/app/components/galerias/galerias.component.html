@@ -1,0 +1,37 @@
+<div class="card-columns">
+    <!-- Es muy importante tener claro este concepto de Input
+    ya que se ahorra demasiado codigo DEMASIADO   -->
+    <div class="card puntero w3-hover-shadow" 
+         (click)="infopelicula(movie.id)"
+         *ngFor="let movie of movies">
+
+      <img [src]="movie | peliculaImagen:false: 500"
+          class="card-img-top" 
+          [alt]="movie.title"/>
+
+      <div class="card-body">
+        <h5 class="card-title">{{movie.title}}</h5>
+
+        <div class="row">
+          <div class="col-md-4">
+              <p>Rate: <small><b>{{movie.vote_average}} </b></small></p>
+          </div>
+          <div class="col-md-8">
+            <div class="progress">
+                <div class="progress-bar bg-success" 
+                     role="progressbar" 
+                     [ngStyle]="{'width.%': movie.vote_average * 10}"
+                     aria-valuenow="25" 
+                     aria-valuemin="0" 
+                     aria-valuemax="100"></div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <p>{{movie.release_date | date}}</p>
+      </div>
+
+    </div>
+
+</div>
+

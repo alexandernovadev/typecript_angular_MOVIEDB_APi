@@ -1,0 +1,14 @@
+.colorprimario {
+    background-color: #795548;
+}
+.colorsecundario {
+    background-color: #a98274;
+}
+
+.colorfuerte {
+    background-color: #4b2c20;
+}
+
+.puntero {
+    cursor: pointer;
+}

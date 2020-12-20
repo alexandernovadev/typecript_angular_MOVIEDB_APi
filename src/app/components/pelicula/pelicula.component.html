@@ -1,0 +1,54 @@
+<div class="container">
+    
+    <div class="w3-panel" style="padding:0">
+        
+        <div class="w3-right  w3-padding">
+            <button type="button" 
+            class="btn btn-outline-danger "
+            (click)="regresar()">
+              Regresar
+            </button>
+        </div>
+
+    </div>
+<!-- 
+    Este loading lo coloque yo, esto del ng template
+    lo aprendi hace arto en otro curso de angular -->
+    <ng-template #cargando>
+        <div class="mx-auto" style="width: 200px;">
+            <div class="spinner-border text-dark text-center" 
+                 role="status"
+                 style="width: 50px; height: 50px">
+                <span class="sr-only">...</span>
+            </div>
+            <h1>Cargando..</h1>
+        </div>
+    </ng-template>
+    
+
+    <div class="container mt-5" *ngIf="loading; else cargando">
+      <div class="row">
+        <div class="col-md-4">
+          <!-- Ese pipe de la imagen es creacion mia -->
+            <img [src]="data | peliculaImagen: false: 780" 
+                 [alt]="data.original_title"
+                 class="img-fluid"/>
+        </div>
+
+        <div class="col-md-8">
+          <h1>{{data.original_title}}
+             <small>{{data.release_date | date}}</small>
+          </h1>
+          <h4>Idioma: {{data.original_language}}</h4>
+          <h4>Rate: {{data.vote_average}} / 10</h4>
+          <h4>Votos: {{data.vote_count}}</h4>
+          <br>
+          <h4>Productora: {{data | productor}}</h4><br>
+          
+          <p>
+            {{data.overview}}
+          </p>
+        </div>
+      </div>
+    </div>
+</div>
